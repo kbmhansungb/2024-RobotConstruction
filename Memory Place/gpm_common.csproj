@@ -159,8 +159,8 @@
     <Compile Include="Assets\GPM\Common\ThirdParty\SharpCompress\Crypto\DataLengthException.cs" />
     <Compile Include="Assets\GPM\Common\ThirdParty\SharpCompress\Writers\IWriterExtensions.cs" />
     <Compile Include="Assets\GPM\Common\ThirdParty\SharpCompress\Compressors\Deflate\InfTree.cs" />
-    <Compile Include="Assets\GPM\Common\ThirdParty\SharpCompress\Compressors\Rar\UnpackV1\Unpack50.cs" />
     <Compile Include="Assets\GPM\Common\Util\EditorCoroutine.cs" />
+    <Compile Include="Assets\GPM\Common\ThirdParty\SharpCompress\Compressors\Rar\UnpackV1\Unpack50.cs" />
     <Compile Include="Assets\GPM\Common\ThirdParty\SharpCompress\IO\StreamingMode.cs" />
     <Compile Include="Assets\GPM\Common\ThirdParty\SharpCompress\Compressors\Rar\UnpackV1\UnpackUtility.cs" />
     <Compile Include="Assets\GPM\Common\ThirdParty\MessagePack\UnsafeExtensions\UnityBlitResolver.cs" />
@@ -358,8 +358,8 @@
     <Compile Include="Assets\GPM\Common\ThirdParty\SharpCompress\Readers\AbstractReader.cs" />
     <Compile Include="Assets\GPM\Common\ThirdParty\SharpCompress\EnumExtensions.cs" />
     <Compile Include="Assets\GPM\Common\Log\GpmLogger.cs" />
-    <Compile Include="Assets\GPM\Common\ThirdParty\SharpCompress\Writers\Zip\ZipWriterEntryOptions.cs" />
     <Compile Include="Assets\GPM\Common\ThirdParty\LitJson\JsonException.cs" />
+    <Compile Include="Assets\GPM\Common\ThirdParty\SharpCompress\Writers\Zip\ZipWriterEntryOptions.cs" />
     <Compile Include="Assets\GPM\Common\ThirdParty\MessagePack\Internal\ByteArrayComparer.cs" />
     <Compile Include="Assets\GPM\Common\ThirdParty\SharpCompress\Crypto\ICipherParameters.cs" />
     <Compile Include="Assets\GPM\Common\ThirdParty\SharpCompress\Compressors\PPMd\H\State.cs" />

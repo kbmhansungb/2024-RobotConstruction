@@ -76,6 +76,7 @@
     <Compile Include="Assets\Manager\GameManager.cs" />
     <Compile Include="Assets\Memory\Annotation.cs" />
     <Compile Include="Assets\Environment\Environment.cs" />
+    <Compile Include="Assets\ContactMenu\ContactMenu.cs" />
     <Compile Include="Assets\SlimUI\Modern Menu 1\Scripts\Managers\UIMenuManager.cs" />
     <Compile Include="Assets\SlimUI\Modern Menu 1\Scripts\Misc\ResetDemo.cs" />
     <Compile Include="Assets\SlimUI\Modern Menu 1\Scripts\ThemeEditor\ThemedUIElement.cs" />

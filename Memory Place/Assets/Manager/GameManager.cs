@@ -18,6 +18,7 @@ public partial class GameManager : MonoBehaviour
     [Space(10)]
     [SerializeField] private Environment environment;
     [SerializeField] private MainMenuPresenter mainMenuPresenter;
+    [SerializeField] private ContactMenu contactMenu;
     [SerializeField] private MemoryPresenter memoryPresenter;
 
     private EGameState gameState = EGameState.MainMenu;
@@ -30,6 +31,7 @@ public partial class GameManager : MonoBehaviour
         // 초기화를 진행합니다.
         environment.Init();
         mainMenuPresenter.Init();
+        contactMenu.Init();
         memoryPresenter.Init();
         
         SetMainMenuStateImmediate();
@@ -38,6 +40,7 @@ public partial class GameManager : MonoBehaviour
     public void SetMainMenuStateImmediate()
     {
         mainMenuPresenter.SetState(MainMenuPresenter.EMainMenuState.Visible);
+        contactMenu.SetState(ContactMenu.ContactMenuState.Disactive);
         memoryPresenter.SetState(MemoryPresenter.EMemoryState.Disactive); 
     }
 
@@ -56,6 +59,7 @@ public partial class GameManager : MonoBehaviour
                     ()=>{ 
                         mainMenuPresenter.SetState(MainMenuPresenter.EMainMenuState.Visible);
                         memoryPresenter.SetState(MemoryPresenter.EMemoryState.Disactive); 
+                        contactMenu.SetState(ContactMenu.ContactMenuState.Disactive);
                     }, 
                     ()=>{  
                     });
@@ -75,12 +79,21 @@ public partial class GameManager : MonoBehaviour
                 break;
             case EGameState.Contact:
                 {
-                    
+                    mainMenuPresenter.SetState(MainMenuPresenter.EMainMenuState.Invisible);
+                    environment.FadeInOut(0.6f, 
+                    ()=>{
+                        mainMenuPresenter.SetState(MainMenuPresenter.EMainMenuState.Disactive);
+                        contactMenu.SetState(ContactMenu.ContactMenuState.Active);
+                    }, 
+                    ()=>{
+                    });
                 }
                 break;
             case EGameState.More:
                 {
-                    Application.Quit();
+                    // 아래의 url을 엽니다
+                    string url = "https://www.gamejob.co.kr/User/Resume/View?R_NO=273777";
+                    Application.OpenURL(url);
                 }
                 break;
             default:

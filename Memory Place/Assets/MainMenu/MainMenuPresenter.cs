@@ -15,13 +15,14 @@ public class MainMenuPresenter : MonoBehaviour
         Interactive,
         Invisible,
         Disactive,
+        Contact,
     }
     EMainMenuState mainMenuState = EMainMenuState.Disactive;
     Coroutine stateCoroutine = null;
 
     [Header("Main Menu Buttons")]
     [SerializeField] private List<MainMenuItem> mainMenuItems;
-    [SerializeField] private MainMenuItem memorisButton;
+    [SerializeField] private MainMenuItem careerButton;
     [SerializeField] private MainMenuItem contactButton;
     [SerializeField] private MainMenuItem moreButton;
 
@@ -42,7 +43,7 @@ public class MainMenuPresenter : MonoBehaviour
             item.OnExit += OnExitItem;
         });
 
-        memorisButton.OnClick += OnClickMemory;
+        careerButton.OnClick += OnClickMemory;
         contactButton.OnClick += OnClickContact;
         moreButton.OnClick += OnClickExit;
     }
