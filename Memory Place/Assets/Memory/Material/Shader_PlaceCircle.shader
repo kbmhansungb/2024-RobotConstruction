@@ -56,7 +56,8 @@ Shader "Hidden/Shader_PlaceCircle"
                     discard;
                 }
 
-                col.a = 0.2f;
+                float time = _Time.y;
+                col.a = 0.5f + 0.2f * sin(time * 2 * 3.141592);
                 col.rgb = 1.0f;
                 return col;
             }

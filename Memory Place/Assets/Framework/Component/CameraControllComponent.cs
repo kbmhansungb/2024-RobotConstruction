@@ -83,10 +83,22 @@ public class CameraControllComponent : MonoBehaviour
     /// <param name="position"></param>
     /// <param name="eulerRotation"></param>
     /// <param name="cameraDistance"></param>
-    public void SetCameraPosition(Vector3 position, Vector3 eulerRotation, float cameraDistance)
+    public void SetCameraTransform(Vector3 position, Vector3 eulerRotation, float cameraDistance)
     {
         desiredPosition = position;
         desiredEulerRotation = eulerRotation;
         desiredCameraPositionZ = -cameraDistance;
+    }
+
+    public void SetCameraTransform(CameraControllComponent other, bool isImmediate = false)
+    {
+        SetCameraTransform(other.transform.position, other.transform.rotation.eulerAngles, -other.cameraTransform.localPosition.z);
+
+        if (isImmediate)
+        {
+            transform.position = desiredPosition;
+            transform.rotation = Quaternion.Euler(desiredEulerRotation);
+            cameraTransform.localPosition = new Vector3(0, 0, desiredCameraPositionZ);
+        }
     }
 }

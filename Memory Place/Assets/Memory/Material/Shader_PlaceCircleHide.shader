@@ -56,7 +56,7 @@ Shader "Hidden/Shader_PlaceCircleHide"
 
                 // sin(시간)에 따른 투명도 조절
                 float time = _Time.y;
-                _Alpha = 0.5 + 0.5 * sin(time * 2 * 3.141592);
+                _Alpha = 0.5f + 0.5f * sin(time * 2 * 3.141592);
                 
                 col.a = _Alpha;
                 col.rgb = 0.05f;

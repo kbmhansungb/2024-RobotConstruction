@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1679e1252050b9e4985f48ab59c66b36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraControllComponent: {fileID: 8569361390752233423}
   projects:
   - {fileID: 6744863055941810221}
   backButton: {fileID: 3175161686415711201}
@@ -630,6 +631,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4814540848645546281}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8569361390752233423 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3764116128551130854, guid: f614201a0b965404398657d6d3783175,
+    type: 3}
+  m_PrefabInstance: {fileID: 4814540848645546281}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b2e7c8943b0881469394b97fbcdeaec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8273791115000550144
 PrefabInstance:
   m_ObjectHideFlags: 0

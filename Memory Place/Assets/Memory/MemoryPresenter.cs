@@ -5,7 +5,17 @@ using UnityEngine.UI;
 
 public class MemoryPresenter : MonoBehaviour
 {
+    public enum EMemoryState
+    {
+        None,
+        Active,
+        Disactive
+    }
+
+    private EMemoryState memoryState;
+
     [Header("MemoryPresenter/Project")]
+    [SerializeField] private CameraControllComponent cameraControllComponent;
     [SerializeField] private List<Project> projects;
     private int currentProjectIndex = 0;
 
@@ -23,11 +33,31 @@ public class MemoryPresenter : MonoBehaviour
         underBar.Init();
         underBar.beforeEvent += OnClickBefore;
         underBar.nextEvent += OnClickNext;
-
-        SetProject(0);
     }
 
-    public void SetProject(int index)
+    public void SetState(EMemoryState state)
+    {
+        memoryState = state;
+
+        switch (memoryState)
+        {
+            case EMemoryState.Active:
+            {
+                gameObject.SetActive(true);
+                SetProject(0, true);
+            }
+                break;
+            case EMemoryState.Disactive:
+            {
+                gameObject.SetActive(false);
+            }
+                break;
+            default:
+                throw new NotImplementedException();
+        }
+    }
+
+    public void SetProject(int index, bool isImmediate = false)
     {
         if (index < 0 || index >= projects.Count)
         {
@@ -39,6 +69,9 @@ public class MemoryPresenter : MonoBehaviour
 
         Project project = projects[currentProjectIndex];
         underBar.SetProjectName(project.ProjectName, currentProjectIndex > 0, currentProjectIndex < projects.Count - 1);
+
+        // 해당하는 프로젝트의 카메라 위치로 이동합니다.
+        cameraControllComponent.SetCameraTransform(project.DesiredCameraPosition, isImmediate);
 
         // 해당하는 프로젝트만 활성화 합니다.
         for (int i = 0; i < projects.Count; i++)
@@ -57,14 +90,13 @@ public class MemoryPresenter : MonoBehaviour
         SetProject(currentProjectIndex - 1);
     }
 
-
-
-    #region Event
+#region Event
     public void OnClickBack()
     {
         Debug.Log("OnClickBack");
 
         GameManager.Instance.SetState(EGameState.MainMenu);
     }
+
 #endregion
 }

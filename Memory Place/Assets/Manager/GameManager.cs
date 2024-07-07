@@ -3,6 +3,7 @@ using UnityEngine;
 
 public enum EGameState
 {
+    None,
     MainMenu,
     Memory,
     Contact,
@@ -37,7 +38,7 @@ public partial class GameManager : MonoBehaviour
     public void SetMainMenuStateImmediate()
     {
         mainMenuPresenter.SetState(MainMenuPresenter.EMainMenuState.Visible);
-        memoryPresenter.gameObject.SetActive(false); 
+        memoryPresenter.SetState(MemoryPresenter.EMemoryState.Disactive); 
     }
 
     public void SetState(EGameState state)
@@ -54,7 +55,7 @@ public partial class GameManager : MonoBehaviour
                     environment.FadeInOut(0.6f, 
                     ()=>{ 
                         mainMenuPresenter.SetState(MainMenuPresenter.EMainMenuState.Visible);
-                        memoryPresenter.gameObject.SetActive(false); 
+                        memoryPresenter.SetState(MemoryPresenter.EMemoryState.Disactive); 
                     }, 
                     ()=>{  
                     });
@@ -66,7 +67,7 @@ public partial class GameManager : MonoBehaviour
                     environment.FadeInOut(0.6f, 
                     ()=>{
                         mainMenuPresenter.SetState(MainMenuPresenter.EMainMenuState.Disactive);
-                        memoryPresenter.gameObject.SetActive(true); 
+                        memoryPresenter.SetState(MemoryPresenter.EMemoryState.Active);
                     }, 
                     ()=>{
                     });

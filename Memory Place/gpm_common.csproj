@@ -294,10 +294,10 @@
     <Compile Include="Assets\GPM\Common\Indicator\Scripts\Internal\Vo\QueueItem.cs" />
     <Compile Include="Assets\GPM\Common\ThirdParty\MessagePack\Resolvers\DynamicEnumAsStringResolver.cs" />
     <Compile Include="Assets\GPM\Common\Indicator\Scripts\GpmIndicatorData.cs" />
+    <Compile Include="Assets\GPM\Common\ThirdParty\SharpCompress\Compressors\Deflate64\MatchState.cs" />
     <Compile Include="Assets\GPM\Common\ThirdParty\MessagePack\Resolvers\CompositeResolver.cs" />
     <Compile Include="Assets\GPM\Common\ThirdParty\SharpCompress\Compressors\Filters\BCJ2Filter.cs" />
     <Compile Include="Assets\GPM\Common\ThirdParty\SharpCompress\Common\SevenZip\CCoderInfo.cs" />
-    <Compile Include="Assets\GPM\Common\ThirdParty\SharpCompress\Compressors\Deflate64\MatchState.cs" />
     <Compile Include="Assets\GPM\Common\ThirdParty\SharpCompress\Compressors\Rar\UnpackV1\Unpack20.cs" />
     <Compile Include="Assets\GPM\Common\Indicator\Scripts\Internal\Consts\Launching.cs" />
     <Compile Include="Assets\GPM\Common\ThirdParty\SharpCompress\Common\ArchiveExtractionEventArgs.cs" />
