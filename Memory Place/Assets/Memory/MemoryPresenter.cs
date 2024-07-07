@@ -73,11 +73,13 @@ public class MemoryPresenter : MonoBehaviour
         // 해당하는 프로젝트의 카메라 위치로 이동합니다.
         cameraControllComponent.SetCameraTransform(project.DesiredCameraPosition, isImmediate);
 
-        // 해당하는 프로젝트만 활성화 합니다.
-        for (int i = 0; i < projects.Count; i++)
-        {
-            projects[i].gameObject.SetActive(i == currentProjectIndex);
-        }
+        // 2024 07 07
+        // 모든 프로젝트를 항상 보이게 합니다.
+        // // 해당하는 프로젝트만 활성화 합니다.
+        // for (int i = 0; i < projects.Count; i++)
+        // {
+        //     projects[i].gameObject.SetActive(i == currentProjectIndex);
+        // }
     }
 
     private void OnClickNext(UnderBar underBar)
