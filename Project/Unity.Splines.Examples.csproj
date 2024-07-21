@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{8FBBFDBD-690F-1860-43C4-CEEF2BBC9B0F}</ProjectGuid>
+    <ProjectGuid>{BB7F7F35-A882-C7FE-30DC-3CE9632D2B1E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.Splines.Examples</AssemblyName>

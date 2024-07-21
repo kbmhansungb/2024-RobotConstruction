@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{1F3C50FF-AE9E-68A7-84CF-292C041D81FC}</ProjectGuid>
+    <ProjectGuid>{5B9FF267-005F-A3BF-219E-FEAE2D8C894F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -1098,11 +1098,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.Splines.Examples.csproj">
-      <Project>{8FBBFDBD-690F-1860-43C4-CEEF2BBC9B0F}</Project>
+      <Project>{BB7F7F35-A882-C7FE-30DC-3CE9632D2B1E}</Project>
       <Name>Unity.Splines.Examples</Name>
     </ProjectReference>
     <ProjectReference Include="gpm_common.csproj">
-      <Project>{22A32B13-DBE4-39EF-FDBE-4F5ED0E4037B}</Project>
+      <Project>{C61479CA-FC8B-8BEC-E74C-1DDE2145DB84}</Project>
       <Name>gpm_common</Name>
     </ProjectReference>
   </ItemGroup>

@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{22A32B13-DBE4-39EF-FDBE-4F5ED0E4037B}</ProjectGuid>
+    <ProjectGuid>{C61479CA-FC8B-8BEC-E74C-1DDE2145DB84}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>gpm_common</AssemblyName>

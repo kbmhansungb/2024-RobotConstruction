@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{759D6494-8B59-DF4A-994C-E28EBE369543}</ProjectGuid>
+    <ProjectGuid>{D15C06E9-9F69-1B4C-A43A-581D1106E85C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.Splines.Examples.Editor</AssemblyName>
@@ -1008,7 +1008,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.Splines.Examples.csproj">
-      <Project>{8FBBFDBD-690F-1860-43C4-CEEF2BBC9B0F}</Project>
+      <Project>{BB7F7F35-A882-C7FE-30DC-3CE9632D2B1E}</Project>
       <Name>Unity.Splines.Examples</Name>
     </ProjectReference>
   </ItemGroup>

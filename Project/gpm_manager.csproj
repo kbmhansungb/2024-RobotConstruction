@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{84A95A7B-1D69-75DB-89B5-16A8B1FE692E}</ProjectGuid>
+    <ProjectGuid>{8C56BE61-85C7-B099-DED3-9B0F7F831CE3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>gpm_manager</AssemblyName>
@@ -1027,7 +1027,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="gpm_common.csproj">
-      <Project>{22A32B13-DBE4-39EF-FDBE-4F5ED0E4037B}</Project>
+      <Project>{C61479CA-FC8B-8BEC-E74C-1DDE2145DB84}</Project>
       <Name>gpm_common</Name>
     </ProjectReference>
   </ItemGroup>

@@ -6,19 +6,26 @@ using UnityEngine.EventSystems;
 
 public class CameraControllComponent : MonoBehaviour
 {
-    [SerializeField] private Transform cameraTransform;
-
     [Space(10)]
     [SerializeField] private float baseMovementSpeed = 10.0f;
     [SerializeField] private float baseRotationSpeed = 40.0f;
     [SerializeField] private float baseZoomSpeed = 50.0f;
     [SerializeField] private float lerpSpeed = 5.0f; // 보간 속도를 조절할 변수
 
+    [Header("Camera")]
+    [SerializeField] private Camera mainCamera;
+    [SerializeField] private Camera worldUICamera;
+
+    [SerializeField] private Transform cameraTransform;
+
     private Vector3 desiredPosition;
     private Vector3 desiredEulerRotation;
     float desiredCameraPositionZ;
 
     bool isActivated = false;
+
+    public Camera MainCamera { get => mainCamera; }
+    public Camera WorldUICamera { get => worldUICamera; }
 
     private void Start()
     {

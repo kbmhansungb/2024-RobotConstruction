@@ -17,6 +17,8 @@ public class MemoryPresenter : MonoBehaviour
     [Header("MemoryPresenter/Project")]
     [SerializeField] private CameraControllComponent cameraControllComponent;
     [SerializeField] private List<Project> projects;
+    [SerializeField] private RawImage RawImage;
+    private RenderTexture RenderTexture;
     private int currentProjectIndex = 0;
 
     public Project CurrentProject { get => currentProjectIndex != -1 ? projects[currentProjectIndex] : null; }
@@ -41,6 +43,29 @@ public class MemoryPresenter : MonoBehaviour
         {
             project.Init();
             project.OnClickProject += OnClickSubProject;
+        }
+    }
+
+    private void Update()
+    {
+        // RawImage의 크기를 구해 RenderTexture를 생성합니다.
+        if (RenderTexture == null)
+        {
+            RenderTexture = new RenderTexture((int)RawImage.rectTransform.rect.width, (int)RawImage.rectTransform.rect.height, 0);
+            RawImage.texture = RenderTexture;
+            cameraControllComponent.MainCamera.targetTexture = RenderTexture;
+            cameraControllComponent.WorldUICamera.targetTexture = RenderTexture;
+        }
+
+        // 화면 크기가 변경되었을 때 RenderTexture의 크기를 변경합니다.
+        if (RenderTexture.width != (int)RawImage.rectTransform.rect.width || RenderTexture.height != (int)RawImage.rectTransform.rect.height)
+        {
+            Destroy(RenderTexture);
+
+            RenderTexture = new RenderTexture((int)RawImage.rectTransform.rect.width, (int)RawImage.rectTransform.rect.height, 0);
+            RawImage.texture = RenderTexture;
+            cameraControllComponent.MainCamera.targetTexture = RenderTexture;
+            cameraControllComponent.WorldUICamera.targetTexture = RenderTexture;
         }
     }
 
