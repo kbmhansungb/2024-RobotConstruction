@@ -1,6 +1,6 @@
 {
-    "name": "Memory Place",
-    "short_name": "Memory Place",
+    "name": "BridgeConstruction",
+    "short_name": "BridgeConstruction",
     "start_url": "index.html",
     "display": "fullscreen",
     "background_color": "#231F20",

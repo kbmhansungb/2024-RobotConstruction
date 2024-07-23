@@ -1,4 +1,4 @@
-const cacheName = "DefaultCompany-Memory Place-0.1.0";
+const cacheName = "DefaultCompany-BridgeConstruction-0.1.0";
 const contentToCache = [
     "Build/2024 MemoryPlace.loader.js",
     "Build/2024 MemoryPlace.framework.js",

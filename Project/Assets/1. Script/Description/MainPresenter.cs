@@ -1,7 +1,18 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
+[Serializable]
+public struct ContentData
+{
+    public string Name;
+    public RectTransform DescriptionUI;
+    public DescriptionPoint DescriptionPoint;
+
+    [Space]
+    public List<Outline> Outlines;
+    public List<GameObject> ActiveObjects;
+}
 
 public class MainPresenter : MonoBehaviour
 {
@@ -16,11 +27,9 @@ public class MainPresenter : MonoBehaviour
 
     [Header("MemoryPresenter/Project")]
     [SerializeField] private CameraControllComponent cameraControllComponent;
-    [SerializeField] private List<Project> projects;
+    [SerializeField] private List<ContentData> contents;
 
     private int currentProjectIndex = 0;
-
-    public Project CurrentProject { get => currentProjectIndex != -1 ? projects[currentProjectIndex] : null; }
 
     [Header("MemoryPresenter/UI")]
     [SerializeField] private UnderBar underBar;
@@ -32,10 +41,10 @@ public class MainPresenter : MonoBehaviour
         underBar.nextEvent += OnClickNext;
 
         // 프로젝트를 초기화합니다.
-        foreach (var project in projects)
+        foreach (var content in contents)
         {
-            project.Init();
-            project.OnClickProject += OnClickSubProject;
+            content.DescriptionPoint.Init();
+            content.DescriptionPoint.OnClickProject += OnClickSubProject;
         }
 
         SetProject(0, true);
@@ -63,50 +72,49 @@ public class MainPresenter : MonoBehaviour
         }
     }
 
-    public void SetProject(Project project, bool isImmediate = false)
+    public void SetProject(DescriptionPoint descriptionPoint, bool isImmediate = false)
     {
-        int index = projects.IndexOf(project);
+        int index = contents.FindIndex(elum => { return elum.DescriptionPoint == descriptionPoint; });
         SetProject(index, isImmediate);
     }
 
     public void SetProject(int index, bool isImmediate = false)
     {
+        if (index < 0 || index >= contents.Count)
+        {
+            Debug.LogError($"{this.GetType().Name}: Invalid index");
+
+            return;
+        }
+
+        // 새로운 프로젝트의 상태를 변경합니다.
         currentProjectIndex = index;
+        var currentContent = contents[currentProjectIndex];
 
-        Project project = CurrentProject;
-        if (project != null)
+        // 프로젝트 이름을 설정합니다.
+        underBar.SetProjectName(currentContent.Name, currentProjectIndex > 0, currentProjectIndex < contents.Count - 1);
+
+        // 해당하는 프로젝트의 카메라 위치로 이동합니다.
+        cameraControllComponent.SetCameraTransform(currentContent.DescriptionPoint.DesiredCameraPosition, isImmediate);
+
+        for (int i = 0; i < contents.Count; i++)
         {
-            underBar.SetProjectName(project.ProjectName, currentProjectIndex > 0, currentProjectIndex < projects.Count - 1);
+            var content = contents[i];
 
-            // 해당하는 프로젝트의 카메라 위치로 이동합니다.
-            cameraControllComponent.SetCameraTransform(project.DesiredCameraPosition, isImmediate);
+            // 알맞은 설명을 활성화합니다.
+            content.DescriptionUI.gameObject.SetActive(i == index);
+
+            // 모든 아웃라인과 오브젝트를 비활성화 합니다.
+            content.Outlines.ForEach(outline => outline.enabled = false);
+            content.ActiveObjects.ForEach(obj => obj.SetActive(false));
         }
 
-        // 해당하는 프로젝트만 활성화 합니다.
-        for (int i = 0; i < projects.Count; i++)
-        {
-            // var projectState = EProjectSelectionState.None;
-            // if (project == null)
-            // {
-            //     projectState = EProjectSelectionState.Unselected;
-            // }
-            // else if (i == currentProjectIndex)
-            // {
-            //     projectState = EProjectSelectionState.Selected;
-            // }
-            // else
-            // {
-            //     projectState = EProjectSelectionState.OtherSelected;
-            // }
-            // projects[i].SetProjectSelectionState(projectState);
-
-            // 2024 07 17
-            // 라벨이 항상 표시되도록 합니다.
-            projects[i].SetProjectSelectionState(EProjectSelectionState.Unselected);
-        }
+        // 해당하는 프로젝트의 아웃라인과 오브젝트를 활성화합니다.
+        currentContent.Outlines.ForEach(outline => outline.enabled = true);
+        currentContent.ActiveObjects.ForEach(obj => obj.SetActive(true));
     }
 
-#region Event
+    #region Event
     private void OnClickNext(UnderBar underBar)
     {
         SetProject(currentProjectIndex + 1);
@@ -121,7 +129,7 @@ public class MainPresenter : MonoBehaviour
     /// 프로젝트를 클릭했을 때 호출됩니다.
     /// </summary>
     /// <param name="project"></param>
-    private void OnClickSubProject(Project project)
+    private void OnClickSubProject(DescriptionPoint project)
     {
         // 2024 07 17
         // 라벨이 항상 표시되도록 합니다.
